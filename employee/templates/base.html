@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body style="background-color: white">
+    <div class="wrapper">
+      <div class="sidebar">
+        <div class="profile">
+          <img src="{% static 'profileimg.jpg' %}" alt="profile_picture" />
+          <div>
+            <h3>Admin</h3>
+          </div>
+        </div>
+        <ul>
+          <li>
+            <a href="#" class="active">
+              <span class="icon"><i class="fas fa-home"></i></span>
+              <span class="item">Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fas fa-user-friends"></i></span>
+              <span class="item">Employee attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fa-solid fa-trash"></i>
+              </span>
+              <span class="item">Deleted Employee</span>
+            </a>
+          </li>
+        </ul>
+        <button id="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </button>
+      </div>
+      <div class="i1">
+        <img src="{% static 'logoo.png' %}" alt="profile_picture" />
+      </div>
+      {% block body%} {%endblock body%}
+    </div>
+    <script></script>
+  </body>
+</html>

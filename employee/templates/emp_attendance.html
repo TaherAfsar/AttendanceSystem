@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block body %}
+<section class="attendance">
+  <div class="attendance-list">
+    <h1>Employee Attendance</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Login Time</th>
+          <th>Logout Time</th>
+          <th>Mins Active</th>
+          <th>Mins Inactive</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for emp in employee%}
+          <td>{{emp.date}}</td>
+          <td>{{emp.loginTime}}</td>
+          <td>{{emp.logoutTime}}</td>
+          <td>{{emp.minsActive}}</td>
+          <td>{{emp.minsInactive}}</td>
+          {% comment %}
+          <td><button>View</button></td>
+          {% endcomment %} {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock body %}

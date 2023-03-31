@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block body %}
+<section class="attendance">
+  <div class="attendance-list">
+    <h1>Employee List</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Token</th>
+          <th>View</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for emp in employee%}
+          <td>{{emp.id}}</td>
+          <td>{{emp.emp_id}}</td>
+          <td>{{emp.name}}</td>
+          <td>{{emp.token}}</td>
+          <td>
+            <button>
+              <a
+                href="{% url 'attendance' %}?id={{ emp.emp_id|stringformat:'s'}}"
+              >
+                View
+              </a>
+            </button>
+          </td>
+          {% endfor %}
+        </tr>
+        {% comment %}
+        <tr>
+          <td>02</td>
+          <td>Taher Afsar</td>
+          <td>9655696598</td>
+          <td>taher@gmail.com</td>
+          <td><button>Delete</button></td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td>Niranjan mane</td>
+          <td>8959656598</td>
+          <td>Niranjan@gmail.com</td>
+          <td><button>Delete</button></td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td>Simran Gorad</td>
+          <td>7895596598</td>
+          <td>simran@gmail.com</td>
+          <td><button>Delete</button></td>
+        </tr>
+        {% endcomment %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock body%}
