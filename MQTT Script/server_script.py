@@ -11,7 +11,6 @@ MQTT_TOPIC = "attendance/wifi"
 # Django API endpoint for marking attendance
 DJANGO_API_URL = "http://127.0.0.1:8000/mark-attendance/"
 
-# Function to mark attendance via Django API
 def mark_attendance(emp_id, token, status):
     data = {
         "emp_id": emp_id,
