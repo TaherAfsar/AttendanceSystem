@@ -1,29 +1,24 @@
 {% extends 'base.html' %} {% block body %}
 <section class="attendance">
   <div class="attendance-list">
-    <h1>Today's Attendance</h1>
-    <form action="" method="post">
-      {% csrf_token %} {{ form}}
-      <input required type="date" name="date" id="" />
-      <button type="submit">Submit</button>
-    </form>
+    <h1>Employee List</h1>
     <table class="table">
       <thead>
         <tr class="tableR1">
+          <th>ID</th>
           <th>Employee ID</th>
-          <th>Hours</th>
-          <th>First Log In</th>
-          <th>Last Log Out</th>
+          <th>Name</th>
+          <th>Token</th>
           <th>View</th>
         </tr>
       </thead>
       <tbody>
-        {% for emp in data%}
+        {% for emp in employee%}
         <tr>
+          <td>{{emp.id}}</td>
           <td>{{emp.emp_id}}</td>
-          <td>{{emp.hours}}</td>
-          <td>{{emp.firstLogin}}</td>
-          <td>{{emp.lastLogout}}</td>
+          <td>{{emp.name}}</td>
+          <td>{{emp.token}}</td>
           <td>
             <button
               onclick="window.location.href='{% url 'attendance' %}?id={{ emp.emp_id }}'"

@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block body %} {% load static %}
+<div class="card" style="width: 50%; margin: 100px auto; border-radius: 12px">
+  <div class="card-body">
+    <h5 class="card-title">
+      <center>
+        <img
+          src="{% static 'logo.png' %}"
+          alt="login form"
+          class="img-fluid"
+          style="border-radius: 1rem 0 0 1rem; width: 60%"
+        />
+      </center>
+      <hr style="border-top: 5px solid #047cfc" />
+    </h5>
+    <form action="{% url 'addEmployee' %}" method="post">
+      {% csrf_token %} {{ form}}
+      <div class="mb-3">
+        <label for="name" class="form-label">Employee Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="ID" class="form-label">Employee ID</label>
+        <input type="text" class="form-control" id="email" name="id" required />
+      </div>
+      <div class="mb-3">
+        <label for="Token" class="form-label">Token</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          name="token"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="width: 100%; margin-top: 20px"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock body%}

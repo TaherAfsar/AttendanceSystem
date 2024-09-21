@@ -1,29 +1,30 @@
 {% extends 'base.html' %} {% block body %}
 <section class="attendance">
   <div class="attendance-list">
-    <h1>Employee Attendance</h1>
+    <h1>Employee</h1>
+
     <table class="table">
       <thead>
         <tr>
           <th>Date</th>
-          <th>Login Time</th>
-          <th>Logout Time</th>
-          <th>Mins Active</th>
-          <th>Mins Inactive</th>
+          <th>First Login</th>
+          <th>Last Logout</th>
+          <th>Hours Active</th>
+          <!-- <th>Mins Inactive</th> -->
+          <th>Attendance</th>
         </tr>
       </thead>
       <tbody>
+        {% for att in attendance%}
         <tr>
-          {% for emp in employee%}
-          <td>{{emp.date}}</td>
-          <td>{{emp.loginTime}}</td>
-          <td>{{emp.logoutTime}}</td>
-          <td>{{emp.minsActive}}</td>
-          <td>{{emp.minsInactive}}</td>
-          {% comment %}
-          <td><button>View</button></td>
-          {% endcomment %} {% endfor %}
+          <td>{{att.date}}</td>
+          <td>{{att.firstLogin}}</td>
+          <td>{{att.lastLogout}}</td>
+          <td>{{att.hours}}</td>
+          <!-- <td>{{emp.minsInactive}}</td> -->
+          <td>{{att.attendance}}</td>
         </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
